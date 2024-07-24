@@ -15,6 +15,7 @@ jobs:
 
     env:
       JAVA_VERSION: '21'
+      NAME_2: ${{ vars.test.NAME }}
 
     steps:
     - uses: actions/checkout@v3
@@ -28,6 +29,6 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Print name
-      run: echo "Hello $NAME. $BUILD. Using Java Version $JAVA_VERSION. My API Key is  ${{ secrets.API_KEY }}"
+      run: echo "Hello $NAME_2. $BUILD. Using Java Version $JAVA_VERSION. My API Key is  ${{ secrets.API_KEY }}"
       env:
         BUILD: 'We are currently running the build job'
